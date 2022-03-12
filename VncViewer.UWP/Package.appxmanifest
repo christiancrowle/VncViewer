@@ -8,8 +8,8 @@
 
   <Identity
     Name="dfe311de-a253-4be2-82e0-37adde983be3"
-    Publisher="CN=ricar"
-    Version="1.0.0.0" />
+    Publisher="CN=Christian Crowle"
+    Version="1.0.21.0" />
 
   <mp:PhoneIdentity PhoneProductId="dfe311de-a253-4be2-82e0-37adde983be3" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -32,13 +32,15 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="VncViewer.UWP.App">
       <uap:VisualElements
-        DisplayName="VncViewer.UWP"
+        DisplayName="GBA/IP"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="VncViewer.UWP"
+        Description="Piracy over the network"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>

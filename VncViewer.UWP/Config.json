@@ -1,7 +1,7 @@
 ﻿{
-  "Host": "localhost",
-  "Port": 5900,
-  "Password": "password",
-  "BitsPerPixel": 8,
-  "Depth": 8
+  "Host": "192.168.1.67",
+  "Port": 18008,
+  "Password": "weed",
+  "BitsPerPixel": 16,
+  "Depth": 16
 }

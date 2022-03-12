@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.352
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VncViewer.Vnc", "VncViewer.Vnc\VncViewer.Vnc.csproj", "{138298B2-85BC-4579-A386-FB35ECD11843}"
 EndProject
@@ -75,7 +75,9 @@ Global
 		{F5A5C377-72BE-42CA-83BF-5C648137227D}.Release|x64.Build.0 = Release|Any CPU
 		{F5A5C377-72BE-42CA-83BF-5C648137227D}.Release|x86.ActiveCfg = Release|Any CPU
 		{F5A5C377-72BE-42CA-83BF-5C648137227D}.Release|x86.Build.0 = Release|Any CPU
-		{843ABB26-E0CD-4850-A921-48CFBED800B7}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{843ABB26-E0CD-4850-A921-48CFBED800B7}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{843ABB26-E0CD-4850-A921-48CFBED800B7}.Debug|Any CPU.Build.0 = Debug|x64
+		{843ABB26-E0CD-4850-A921-48CFBED800B7}.Debug|Any CPU.Deploy.0 = Debug|x64
 		{843ABB26-E0CD-4850-A921-48CFBED800B7}.Debug|ARM.ActiveCfg = Debug|ARM
 		{843ABB26-E0CD-4850-A921-48CFBED800B7}.Debug|ARM.Build.0 = Debug|ARM
 		{843ABB26-E0CD-4850-A921-48CFBED800B7}.Debug|ARM.Deploy.0 = Debug|ARM

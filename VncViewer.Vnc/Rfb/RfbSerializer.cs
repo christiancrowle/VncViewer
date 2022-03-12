@@ -57,52 +57,58 @@ namespace VncViewer.Vnc
 
         public void Serialize(Object value)
         {
-            if (value == null) throw new ArgumentNullException(nameof(value));           
-
-            var memberInfos = value.GetType().GetProperties().Where(p => Attribute.IsDefined(p, typeof(MessageMemberAttribute))).Select(p => MessageMemberInfo.FromPropertyInfo(p, value));
-
-            foreach (var m in memberInfos.OrderBy(x => x.MessageMemberAttribute.Index))
+            try
             {
-                if (m.Type == typeof(byte))
+                if (value == null) throw new ArgumentNullException(nameof(value));
+
+                var memberInfos = value.GetType().GetProperties().Where(p => Attribute.IsDefined(p, typeof(MessageMemberAttribute))).Select(p => MessageMemberInfo.FromPropertyInfo(p, value));
+
+                foreach (var m in memberInfos.OrderBy(x => x.MessageMemberAttribute.Index))
                 {
-                    WriteByte((byte)m.Value);
+                    if (m.Type == typeof(byte))
+                    {
+                        WriteByte((byte)m.Value);
+                    }
+                    else if (m.Type == typeof(byte[]))
+                    {
+                        WriteBytes((byte[])m.Value);
+                    }
+                    else if (m.Type == typeof(short))
+                    {
+                        WriteInt16((short)m.Value);
+                    }
+                    else if (m.Type == typeof(int))
+                    {
+                        WriteInt32((int)m.Value);
+                    }
+                    else if (m.Type == typeof(ushort))
+                    {
+                        WriteUInt16((ushort)m.Value);
+                    }
+                    else if (m.Type == typeof(uint))
+                    {
+                        WriteUInt32((uint)m.Value);
+                    }
+                    else if (m.Type == typeof(int[]))
+                    {
+                        WriteInt32Array((int[])m.Value);
+                    }
+                    else if (m.Type == typeof(bool))
+                    {
+                        WriteBool((bool)m.Value);
+                    }
+                    else
+                    {
+                        Serialize(m.Value);
+                    }
+
                 }
-                else if (m.Type == typeof(byte[]))
-                {
-                    WriteBytes((byte[])m.Value);
-                }
-                else if (m.Type == typeof(short))
-                {
-                    WriteInt16((short)m.Value);
-                }
-                else if (m.Type == typeof(int))
-                {
-                    WriteInt32((int)m.Value);
-                }
-                else if (m.Type == typeof(ushort))
-                {
-                    WriteUInt16((ushort)m.Value);
-                }
-                else if (m.Type == typeof(uint))
-                {
-                    WriteUInt32((uint)m.Value);
-                }
-                else if (m.Type == typeof(int[]))
-                {
-                    WriteInt32Array((int[])m.Value);
-                }
-                else if (m.Type == typeof(bool))
-                {
-                    WriteBool((bool)m.Value);
-                }
-                else
-                {
-                    Serialize(m.Value);
-                }
+
+            } 
+            catch (Exception ex)
+            {
 
             }
-
-         
         }
 
         #region Readers

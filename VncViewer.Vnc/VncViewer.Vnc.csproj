@@ -25,6 +25,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
+    <PackageReference Include="Win2D.uwp" Version="1.26.0" />
   </ItemGroup>
 
 </Project>

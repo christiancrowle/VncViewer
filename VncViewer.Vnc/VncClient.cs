@@ -72,7 +72,7 @@ namespace VncViewer.Vnc
             securityTypes = Array.Empty<byte>();
 
             pixelFormat = new PixelFormat(bitsPerPixel, depth);
-            Timeout = 30*1000;
+            Timeout = 1000;
             vncState = VncState.NotConnected;
         }
 
@@ -293,6 +293,17 @@ namespace VncViewer.Vnc
                 ClientVersion = RfbVersions.v3_8;
 
             serializer.WriteVersion(ClientVersion);
+        }
+
+        public void SendKey(uint keysym, bool pressed)
+        {
+            byte[] buff = new byte[8];
+            buff[0] = 4;
+            buff[1] = (byte)(pressed ? 1 : 0);
+            buff[2] = 0x00;
+            buff[3] = 0x00;
+            BitConverter.GetBytes(keysym).Reverse().ToArray().CopyTo(buff, 4);
+            serializer.WriteBytes(buff);
         }
 
         public void Authenticate(RfbAuthenticator a)

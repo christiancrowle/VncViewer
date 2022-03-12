@@ -5,10 +5,22 @@
     xmlns:local="using:VncViewer.UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     mc:Ignorable="d"
-    Background="Black" Loaded="Page_Loaded">
+    Background="#FF967bb6" Name="MainPageControl" Loaded="Page_Loaded" Unloaded="MainPageControl_Unloaded">
 
     <Grid>
-        <Image Name="VncImage"  />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="50" />
+        </Grid.ColumnDefinitions>
+        <Image Name="VncImage" Opacity="0" Grid.ColumnSpan="2"/>
+        <TextBlock Name="StatusText" FontSize="24" FontWeight="Bold" FocusVisualPrimaryBrush="#FF383838" Foreground="Red" Grid.Row="0"></TextBlock>
+        <TextBox Name="txtIp" Grid.Row="1"></TextBox>
+        <Button Name="btnIpConfirm" Grid.Row="1" Grid.Column="1" Width="50" Height="50" Click="btnIpConfirm_Click" >Confirm</Button>
     </Grid>
 </Page>

@@ -51,7 +51,7 @@ namespace VncViewer.Vnc
 
             if ((bitsPerPixel == 16) && (depth == 16))
             {
-                IsTrueColour = false;
+                IsTrueColour = true;
                 RedMax = 31;
                 GreenMax = 63;
                 BlueMax = 31;
